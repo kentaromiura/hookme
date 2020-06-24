@@ -1,13 +1,21 @@
 import produce from "immer";
 //import { useState, useEffect } from "react";
-import { states, updaters, getState, getAllUpdates } from "./state";
+import {
+  states,
+  updaters,
+  getState,
+  getAllUpdates,
+  getAllStimuli,
+} from "./state";
 
 let useState = () => {};
 let useEffect = () => {};
+let $ = (f) => f;
 
 export function useHooksFrom(lib) {
   useState = lib.useState;
   useEffect = lib.useEffect;
+  lib.contextual && ($ = lib.contextual);
 }
 
 export function useSelectors(
@@ -58,6 +66,31 @@ export function useSelector(state, selectFn, equality = (a, b) => a === b) {
   }, []);
 
   return selectFn(getState(state));
+}
+
+export function useStimulus(stimulus, reaction) {
+  getAllStimuli(stimulus).push(reaction);
+  return () => {
+    const stimoli = getAllStimuli(stimulus);
+    stimoli.splice(
+      stimoli.findIndex((c) => c === reaction),
+      1
+    );
+  };
+}
+
+export function stimulate(stimulus, context) {
+  getAllStimuli(stimulus).forEach((f) => f(context, stimulus));
+}
+
+export function useMorphOnStimulus(state) {
+  const [_, morph] = useMorph(state);
+
+  return (stimulus, f) => {
+    return useStimulus(stimulus, (context) => {
+      morph((draft) => f(draft, context));
+    });
+  };
 }
 
 export function useMorph(state) {

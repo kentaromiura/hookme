@@ -2,6 +2,13 @@ import produce from "immer";
 
 export const states = new Map();
 export const updaters = new Map();
+export const stimuli = new Map();
+
+export const getAllStimuli = (stimulus) => {
+  return stimuli.has(stimulus)
+    ? stimuli.get(stimulus)
+    : stimuli.set(stimulus, []) && stimuli.get(stimulus);
+};
 
 export const getState = (initialValue) => {
   return states.has(initialValue)
