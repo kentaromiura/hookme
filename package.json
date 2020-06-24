@@ -1,0 +1,21 @@
+{
+  "name": "hookme",
+  "version": "1.0.0",
+  "description": "hookme is a tiny state library.",
+  "main": "src/index.js",
+  "author": "Cristian Carlesso <@kentaromiura>",
+  "license": "MIT",
+  "dependencies": {
+    "immer": "^7.0.4"
+  },
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn pretty-quick"
+    }
+  }
+}
