@@ -17,5 +17,13 @@
     "hooks": {
       "pre-commit": "yarn pretty-quick"
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kentaromiura/hookme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kentaromiura/hookme/issues"
+  },
+  "homepage": "https://github.com/kentaromiura/hookme"
 }
