@@ -2,7 +2,7 @@ import { Component, html, useEffect, useRef } from "uland";
 import { NewCollectionState, Colors, Collections } from "./State";
 import { GlobalEnter } from "./Stimuli";
 
-import { useMorph, useSelector, useMorphOnStimulus } from "../../..";
+import { useMorph, useMorphOnStimulus } from "../../..";
 
 const OPEN_HEIGHT = "30px";
 

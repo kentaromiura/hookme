@@ -1,6 +1,6 @@
 {
   "name": "hookme",
-  "version": "1.0.0",
+  "version": "1.0.0-rc",
   "description": "hookme is a tiny state library.",
   "main": "src/index.js",
   "author": "Cristian Carlesso <@kentaromiura>",
