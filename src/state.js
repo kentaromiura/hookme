@@ -1,28 +1,30 @@
 import produce from "immer";
 
 // Mathias, I love and hate you for this. https://mathiasbynens.be/notes/globalthis
-(function() {
-	if (typeof globalThis === 'object') return;
-	Object.prototype.__defineGetter__('__magic__', function() {
-		return this;
-	});
-	__magic__.globalThis = __magic__; // lolwat
-	delete Object.prototype.__magic__;
-}());
+(function () {
+  if (typeof globalThis === "object") return;
+  Object.prototype.__defineGetter__("__magic__", function () {
+    return this;
+  });
+  __magic__.globalThis = __magic__; // lolwat
+  delete Object.prototype.__magic__;
+})();
 
-const hookme = 'Symbol' in globalThis ? Symbol.for('kentaromiura/hookme') : 'kentaromiura/hookme'
+const hookme =
+  "Symbol" in globalThis
+    ? Symbol.for("kentaromiura/hookme")
+    : "kentaromiura/hookme";
 
 if (!globalThis[hookme]) {
   globalThis[hookme] = {
     states: new Map(),
     updaters: new Map(),
     stimuli: new Map(),
-    shared: {}
-  }
+    shared: {},
+  };
 }
 
-export const {states, updaters, stimuli, shared} = globalThis[hookme];
-
+export const { states, updaters, stimuli, shared } = globalThis[hookme];
 
 export const getAllStimuli = (stimulus) => {
   return stimuli.has(stimulus)

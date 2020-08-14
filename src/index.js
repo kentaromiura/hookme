@@ -17,9 +17,9 @@ export function useHooksFrom(lib) {
   useEffect = lib.useEffect;
 }
 
-export function useShared(id, initialValue){
+export function useShared(id, initialValue) {
   return shared[id] || (shared[id] = initialValue);
-};
+}
 
 export function useSelectors(
   manyState,
