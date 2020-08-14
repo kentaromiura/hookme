@@ -1,8 +1,9 @@
 import produce from "immer";
-//import { useState, useEffect } from "react";
+
 import {
   states,
   updaters,
+  shared,
   getState,
   getAllUpdates,
   getAllStimuli,
@@ -10,13 +11,15 @@ import {
 
 let useState = () => {};
 let useEffect = () => {};
-let $ = (f) => f;
 
 export function useHooksFrom(lib) {
   useState = lib.useState;
   useEffect = lib.useEffect;
-  lib.contextual && ($ = lib.contextual);
 }
+
+export function useShared(id, initialValue){
+  return shared[id] || (shared[id] = initialValue);
+};
 
 export function useSelectors(
   manyState,
