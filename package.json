@@ -1,17 +1,21 @@
 {
   "name": "hookme",
-  "version": "1.0.0-rc",
+  "version": "1.0.0-rc-2",
   "description": "hookme is a tiny state library.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "author": "Cristian Carlesso <@kentaromiura>",
   "license": "MIT",
   "dependencies": {
     "immer": "^7.0.4"
   },
   "devDependencies": {
+    "clint": "^0.0.6",
     "husky": "^4.2.5",
+    "mkdirp": "^1.0.4",
     "prettier": "^2.0.5",
-    "pretty-quick": "^2.0.1"
+    "pretty-quick": "^2.0.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.26.0"
   },
   "husky": {
     "hooks": {
@@ -24,6 +28,9 @@
   },
   "bugs": {
     "url": "https://github.com/kentaromiura/hookme/issues"
+  },
+  "scripts": {
+    "prepublishOnly": "node distify"
   },
   "homepage": "https://github.com/kentaromiura/hookme"
 }

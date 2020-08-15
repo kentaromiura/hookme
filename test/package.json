@@ -1,0 +1,1 @@
+{"name":"test","version":"1.0.0","description":"","main":"index.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"author":"","license":"ISC","dependencies":{"hookme":"../hookme-1.0.0-rc-2.tgz","augmentor":"2.2.0"}}
