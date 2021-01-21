@@ -6,7 +6,7 @@
   "author": "Cristian Carlesso <@kentaromiura>",
   "license": "MIT",
   "dependencies": {
-    "immer": "^7.0.4"
+    "immer": "^8.0.1"
   },
   "devDependencies": {
     "clint": "^0.0.6",
